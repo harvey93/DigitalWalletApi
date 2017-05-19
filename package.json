@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "postinstall": "psql -f puppies.sql"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "babel-core": "^6.24.1",
