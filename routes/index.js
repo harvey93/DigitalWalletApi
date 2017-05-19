@@ -2,9 +2,7 @@
 // var router = express.Router();
 
 // /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
+
 
 // module.exports = router;
 
@@ -13,6 +11,9 @@ var router = express.Router();
 
 var db = require('../queries');
 
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 router.get('/api/puppies', db.getAllPuppies);
 router.get('/api/puppies/:id', db.getSinglePuppy);
