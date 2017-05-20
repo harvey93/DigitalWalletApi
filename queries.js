@@ -86,13 +86,16 @@ function createPuppy(req, res, next) {
   req.body.age = parseInt(req.body.age);
   db.query('insert into pups(name, breed, age, sex)' + 
     'values(${name}, ${breed}, ${age}, ${sex})', req.body)
-      .then(() => {
-        res.status(200)
-          .json({
-            status: 'success',
-            message: 'Inserted one puppy'
-          });
+      .then( () => {
+        getAllPuppies();
       })
+      // .then(() => {
+      //   res.status(200)
+      //     .json({
+      //       status: 'success',
+      //       message: 'Inserted one puppy'
+      //     });
+      // })
       .catch(err => {
         return next(err);
       });
