@@ -61,25 +61,41 @@ function getSinglePuppy(req, res, next) {
     });
 }
 
+// function createPuppy(req, res, next) {
+//     // console.log(req.params);
+//     // console.log('body: ')
+//     // console.log(req.body);
+//   req.body.age = parseInt(req.body.age);
+//   // console.log(req.body.age);
+//   db.none('insert into pups(name, breed, age, sex)' +
+//       'values(${name}, ${breed}, ${age}, ${sex})',
+//     req.body)
+//     .then(function () {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           message: 'Inserted one puppy'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
+
 function createPuppy(req, res, next) {
-    // console.log(req.params);
-    // console.log('body: ')
-    console.log(req.body);
   req.body.age = parseInt(req.body.age);
-  // console.log(req.body.age);
-  db.none('insert into pups(name, breed, age, sex)' +
-      'values(${name}, ${breed}, ${age}, ${sex})',
-    req.body)
-    .then(function () {
-      res.status(200)
-        .json({
-          status: 'success',
-          message: 'Inserted one puppy'
-        });
-    })
-    .catch(function (err) {
-      return next(err);
-    });
+  db.query('insert into pups(name, breed, age, sex)' + 
+    'values(${name}, ${breed}, ${age}, ${sex})', req.body)
+      .then(() => {
+        res.status(200)
+          .json({
+            status: 'success',
+            message: 'Inserted one puppy'
+          });
+      })
+      .catch(err => {
+        return next(err);
+      });
 }
 
 function updatePuppy(req, res, next) {
