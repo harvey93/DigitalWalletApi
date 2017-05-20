@@ -27,7 +27,7 @@ router.get('/api/puppies/:id', db.getSinglePuppy);
 router.post('/api/puppies', db.createPuppy);
 router.put('/api/puppies/:id', db.updatePuppy);
 router.delete('/api/puppies/:id', db.removePuppy);
-// router.get('/api/puppes/:id/bones', db.getBones);
+router.get('/api/puppies/:id/bones', db.getBones);
 
 
 module.exports = router;
