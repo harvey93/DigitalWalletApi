@@ -14,4 +14,11 @@ CREATE TABLE pups (
 INSERT INTO pups (name, breed, age, sex)
   VALUES ('Tyler', 'Retrieved', 3, 'M');
 
- 
+--  CREATE TABLE bones (
+--   ID SERIAL PRIMARY KEY,
+--   dogId INTEGER references pups(ID),
+--   boneName VARCHAR
+-- );
+
+-- INSERT INTO bones (dogId, boneName)
+--   VALUES (6, 'Bone 5');

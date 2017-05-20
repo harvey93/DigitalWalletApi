@@ -132,10 +132,27 @@ function removePuppy(req, res, next) {
     });
 }
 
+function getBones(req, res, next) {
+  var pupID = parseInt(req.params.id);
+  db.query('select * from bones where bones.dogid = $1', pupID)
+    .then( (data) => {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE puppy'
+        });
+    })
+      .catch((err) => {
+        return next(err);
+      });
+}
+
 module.exports = {
   getAllPuppies: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
-  removePuppy: removePuppy
+  removePuppy: removePuppy,
+  getBones: getBones
 };
