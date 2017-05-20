@@ -87,6 +87,7 @@ function createPuppy(req, res, next) {
   db.query('insert into pups(name, breed, age, sex)' + 
     'values(${name}, ${breed}, ${age}, ${sex})', req.body)
       .then( () => {
+        console.log('in getAll');
         getAllPuppies();
       })
       // .then(() => {
