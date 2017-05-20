@@ -44,6 +44,22 @@ function getAllPuppies(req, res, next) {
     });
 }
 
+function getBones(req, res, next) {
+  var pupID = parseInt(req.params.id);
+  db.query('select * from bones where bones.dogid = $1', pupID)
+    .then( (data) => {
+      res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE puppy'
+        });
+    })
+      .catch((err) => {
+        return next(err);
+      });
+}
+
 function getSinglePuppy(req, res, next) {
   // console.log('in');
   var pupID = parseInt(req.params.id);
@@ -130,22 +146,6 @@ function removePuppy(req, res, next) {
     .catch(function (err) {
       return next(err);
     });
-}
-
-function getBones(req, res, next) {
-  var pupID = parseInt(req.params.id);
-  db.query('select * from bones where bones.dogid = $1', pupID)
-    .then( (data) => {
-      res.status(200)
-        .json({
-          status: 'success',
-          data: data,
-          message: 'Retrieved ONE puppy'
-        });
-    })
-      .catch((err) => {
-        return next(err);
-      });
 }
 
 module.exports = {
