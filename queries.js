@@ -30,6 +30,7 @@ var db = pgp(connectionString);
 // }
 
 function getAllPuppies(req, res, next) {
+  console.log('inside get all');
   db.query('SELECT * FROM pups')
     .then((data) => {
       res.status(200)
