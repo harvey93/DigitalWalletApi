@@ -14,17 +14,32 @@ var db = pgp(connectionString);
 
 // add query functions
 
+// function getAllPuppies(req, res, next) {
+//   db.any('select * from pups')
+//     .then(function (data) {
+//       res.status(200)
+//         .json({
+//           status: 'success',
+//           data: data,
+//           message: 'Retrieved ALL puppies'
+//         });
+//     })
+//     .catch(function (err) {
+//       return next(err);
+//     });
+// }
+
 function getAllPuppies(req, res, next) {
-  db.any('select * from pups')
-    .then(function (data) {
+  db.query('SELECT * FROM pups')
+    .then((data) => {
       res.status(200)
         .json({
-          status: 'success',
+          status: "success",
           data: data,
-          message: 'Retrieved ALL puppies'
+          message: 'Retreived ALL puppies'
         });
     })
-    .catch(function (err) {
+    .catch(err => {
       return next(err);
     });
 }
