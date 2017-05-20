@@ -154,5 +154,6 @@ module.exports = {
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
-  removePuppy: removePuppy
+  removePuppy: removePuppy,
+  getBones: getBones
 };
