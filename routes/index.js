@@ -30,8 +30,8 @@ router.get('/', function(req, res, next) {
 // router.get('/api/puppies/:id/bones', db.getBones);
 
 router.get('/api/payments', db.getAllPayments);
-router.get('/api/user/:id/payments', db.getUserPayments);
-router.post('/api/user/:id/payments', db.createPayment);
+router.get('/api/users/:id/payments', db.getUserPayments);
+router.post('/api/users/:id/payments', db.createPayment);
 router.put('/api/payments/:id', db.updatePayment);
 router.delete('/api/payments/:id', db.removePayment);
 
