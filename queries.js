@@ -149,11 +149,27 @@ function removePuppy(req, res, next) {
     });
 }
 
+function getAllPayments(req, res, next) {
+  db.query('select * from payments')
+    .then((data) => {
+      res.status(200)
+        .json({
+          status: "success",
+          data: data,
+          message: 'Retreived ALL puppies'
+        });
+    })
+      .catch((err) => {
+        return next(err);
+      });
+}
+
 module.exports = {
   getAllPuppies: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
   createPuppy: createPuppy,
   updatePuppy: updatePuppy,
   removePuppy: removePuppy,
-  getBones: getBones
+  getBones: getBones,
+  getAllPayments: getAllPayments
 };

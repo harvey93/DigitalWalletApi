@@ -20,5 +20,17 @@ INSERT INTO pups (name, breed, age, sex)
 --   boneName VARCHAR
 -- );
 
--- INSERT INTO bones (dogId, boneName)
---   VALUES (6, 'Bone 5');
+INSERT INTO payments (user_id, firstname, lastname, card, card_number, expires_month, expires_year, csc)
+  VALUES (1, 'Harvey', 'Mirijanyan', 'Master Card', '4215 3456 5332 9093', 2, 25, 234);
+
+--  CREATE TABLE payments (
+--   ID SERIAL PRIMARY KEY,
+--   user_id INTEGER references users(ID),
+--   firstname VARCHAR,
+--   lastname VARCHAR,
+--   card VARCHAR,
+--   card_number VARCHAR,
+--   expires_month INTEGER,
+--   expires_year INTEGER,
+--   csc INTEGER
+-- );
