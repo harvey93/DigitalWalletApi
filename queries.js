@@ -201,8 +201,8 @@ function getUserPayments(req, res, next) {
 function updatePayment(req, res, next) {
   console.log(req.params.id);
   console.log(req.body);
-  db.query('update payments set user_id=$1, firstname=$2, lastname=$3 where id=$4',
-    [parseInt(req.body.user_id), req.body.firstname, req.body.lastname, parseInt(req.params.id)])
+  db.query('update payments set user_id=$1, firstname=$2, lastname=$3, card=$4, expires_month=$5 where id=$6',
+    [parseInt(req.body.user_id), req.body.firstname, req.body.lastname, req.body.card, parseInt(req.body.expires_month), parseInt(req.params.id)])
     .then(function () {
       res.status(200)
         .json({
