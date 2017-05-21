@@ -185,7 +185,7 @@ function createPayment(req, res, next) {
   req.body.expires_month = parseInt(req.body.expires_month);
   req.body.expires_year = parseInt(req.body.expires_year);
   req.body.csc = parseInt(req.body.csc);
-  db.query('insert into pups(user_id, firstname, lastname, card, card_number, expires_month, expires_year, csc)' + 
+  db.query('insert into payments(user_id, firstname, lastname, card, card_number, expires_month, expires_year, csc)' + 
     'values(${user_id}, ${firstname}, ${lastname}, ${card}, ${card_number}, ${expires_month}, ${expires_year}, ${csc})', req.body)
       .then(() => {
         res.status(200)
