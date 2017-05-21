@@ -20,8 +20,11 @@ INSERT INTO pups (name, breed, age, sex)
 --   boneName VARCHAR
 -- );
 
-INSERT INTO payments (user_id, firstname, lastname, card, card_number, expires_month, expires_year, csc)
-  VALUES (1, 'Harvey', 'Mirijanyan', 'Master Card', '4215 3456 5332 9093', 2, 25, 234);
+-- INSERT INTO payments (user_id, firstname, lastname, card, card_number, expires_month, expires_year, csc)
+--   VALUES (2, 'Vazgen', 'Sargisyan', 'Master Card', '2131 3432 2342 2312', 3, 12, 098);
+
+-- INSERT INTO users(username)
+--   VALUES ('Harvey');
 
 --  CREATE TABLE payments (
 --   ID SERIAL PRIMARY KEY,

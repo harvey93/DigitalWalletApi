@@ -29,6 +29,7 @@ router.put('/api/puppies/:id', db.updatePuppy);
 router.delete('/api/puppies/:id', db.removePuppy);
 router.get('/api/puppies/:id/bones', db.getBones);
 router.get('/api/payments', db.getAllPayments);
+router.get('/api/user/:id/payments', db.getUserPayments);
 
 
 module.exports = router;

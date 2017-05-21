@@ -164,6 +164,22 @@ function getAllPayments(req, res, next) {
       });
 }
 
+function getUserPayments(req, res, next) {
+    var userID = parseInt(req.params.id);
+    db.query('select * from payments where user_id=$1', userID)
+      .then((data) => {
+        res.status(200)
+        .json({
+          status: 'success',
+          data: data,
+          message: 'Retrieved ONE puppy'
+        });
+      })
+      .catch( (err) => {
+        return next(err);
+      });
+}
+
 module.exports = {
   getAllPuppies: getAllPuppies,
   getSinglePuppy: getSinglePuppy,
@@ -171,5 +187,6 @@ module.exports = {
   updatePuppy: updatePuppy,
   removePuppy: removePuppy,
   getBones: getBones,
-  getAllPayments: getAllPayments
+  getAllPayments: getAllPayments,
+  getUserPayments: getUserPayments
 };
