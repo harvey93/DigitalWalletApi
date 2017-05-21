@@ -199,14 +199,14 @@ function updatePayment(req, res, next) {
 }
 
 function createPayment(req, res, next) {
-  console.log(req.params.id);
-  console.log(req.body);
+  // console.log(req.params.id);
+  // console.log(req.body);
   req.body.user_id = parseInt(req.params.id);
   req.body.expires_month = parseInt(req.body.expires_month);
   req.body.expires_year = parseInt(req.body.expires_year);
   req.body.csc = parseInt(req.body.csc);
   console.log("after");
-  console.log(req.params.id);
+  // console.log(req.params.id);
   console.log(req.body);
 
   db.query('insert into payments(user_id, firstname, lastname, card, card_number, expires_month, expires_year, csc)' + 
