@@ -199,6 +199,9 @@ function updatePayment(req, res, next) {
 }
 
 function createPayment(req, res, next) {
+  console.log('hello');
+  console.log(req.params.id);
+  console.log(req.body);
   req.body.user_id = parseInt(req.params.id);
   req.body.expires_month = parseInt(req.body.expires_month);
   req.body.expires_year = parseInt(req.body.expires_year);
