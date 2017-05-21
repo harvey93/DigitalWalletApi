@@ -37,3 +37,6 @@ INSERT INTO pups (name, breed, age, sex)
 --   expires_year INTEGER,
 --   csc INTEGER
 -- );
+
+-- update payments set user_id=1, firstname='hello', lastname='world', card='discover', card_number='1234 5678', 
+-- expires_month=4, expires_year=10, csc=123 where id=1;

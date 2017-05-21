@@ -182,14 +182,14 @@ function getUserPayments(req, res, next) {
 
 function updatePayment(req, res, next) {
   // console.log(req.body);
-  db.none('update payments set user_id=$1, firstname=$2, lastname=$3, card=$4, expires_month=$5, expires_year=$6, csc=$7 where id=$8',
-    [parseInt(req.user_id), req.body.firstname, req.body.lastname, req.body.card, 
+  db.query('update payments set user_id=$1, firstname=$2, lastname=$3, card=$4, card_number=$5 expires_month=$6, expires_year=$7, csc=$8 where id=$9',
+    [parseInt(req.user_id), req.body.firstname, req.body.lastname, req.body.card, req.body.card_number,
     parseInt(req.body.expires_month), parseInt(req.body.expires_year), parseInt(req.body.csc), parseInt(req.params.id)])
     .then(function () {
       res.status(200)
         .json({
           status: 'success',
-          message: 'Updated puppy'
+          message: 'Updated payment'
         });
     })
     .catch(function (err) {
