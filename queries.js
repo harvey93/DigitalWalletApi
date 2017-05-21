@@ -181,6 +181,7 @@ function getUserPayments(req, res, next) {
 }
 
 function updatePayment(req, res, next) {
+  console.log(req.params);
   console.log(req.body);
   db.query('update payments set user_id=$1, firstname=$2, lastname=$3, card=$4, card_number=$5, expires_month=$6, expires_year=$7, csc=$8 where id=$9',
     [parseInt(req.user_id), req.body.firstname, req.body.lastname, req.body.card, req.body.card_number,
